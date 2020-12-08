@@ -164,4 +164,4 @@ const isAlphaNumeric = (char) => {
 
 // charCodeAt(0);
 
-console.log(charCount("Hi There tom42069"));
+console.log(charCount("Hi There guy1211109"));
