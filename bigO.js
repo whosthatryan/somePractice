@@ -141,27 +141,253 @@
 
 // console.log(charCount("Hi There tom"));
 
-const charCount = (str) => {
-    let obj = {};
-    for (let char of str) {
-        if (isAlphaNumeric(char)) {
-            char = char.toLowerCase();
-            obj[char] = ++obj[char] || 1;
+// const charCount = (str) => {
+//     let obj = {};
+//     for (let char of str) {
+//         if (isAlphaNumeric(char)) {
+//             char = char.toLowerCase();
+//             obj[char] = ++obj[char] || 1;
+//         }
+//     }
+//     return obj;
+// }
+
+// const isAlphaNumeric = (char) => {
+//     let code = char.charCodeAt(0);
+//     if (!(code > 47 && code < 58) && // numeric (0-9)
+//         !(code > 64 && code < 91) && // upper alpha (A-Z)
+//         !(code > 96 && code < 123)) { // lower alpha (a-z)
+//         return false;
+//     }
+//     return true;
+// }
+
+// // charCodeAt(0);
+
+// console.log(charCount("Hi There guy1211109"));
+
+
+/////////////FREQUENCY COUNTER
+
+// const same = (arr1, arr2) => {
+//     if (arr1.length !== arr2.length) {
+//         return false;
+//     }
+//     for (let i = 0; i < arr1.length; i++) {
+//         let correctIndex = arr2.indexOf(arr1[i] ** 2)
+//         if (correctIndex === -1) {
+//             return false;
+//         }
+//         console.log(arr2);
+//         arr2.splice(correctIndex, 1)
+//     }
+//     return true;
+// }
+
+// console.log(same([1,2,3,2], [9,1,4,4]))
+
+// const same = (arr1, arr2) => {
+//     if (arr1.length !== arr2.length) {
+//         return false;
+//     }
+//     let frequencyCounter1 = {}
+//     let frequencyCounter2 = {}
+//     for (let val of arr1) {
+//         frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
+//     }
+//     for (let val of arr2) {
+//         frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
+//     }
+//     for (let key in frequencyCounter1) {
+//         if (!(key ** 2 in frequencyCounter2)) {
+//             return false;
+//         }
+//         if (frequencyCounter2[key ** 2] !== frequencyCounter1[key]) {
+//             return false;
+//         }
+//     }
+//     console.log(frequencyCounter1);
+//     console.log(frequencyCounter2);
+//     return true;
+// }
+
+// console.log(same([1,2,3,4], [1,4,9,16]));
+
+
+/////////// ANAGRAMS
+
+// const validAnagram = (str1, str2) => {
+//     if (str1.length !== str2.length) {
+//         return false;
+//     }
+//     let frequencyCounter1 = {};
+//     let frequencyCounter2 = {};
+//     for (let val of str1) {
+//         frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
+//     }
+//     for (let val of str2) {
+//         frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
+//     }
+//     for (let key in frequencyCounter1) {
+//         if (!(key in frequencyCounter2)) {
+//             return false;
+//         }
+//         if (frequencyCounter2[key] !== frequencyCounter1[key]) {
+//             return false;
+//         }
+//     }
+//     console.log(frequencyCounter1);
+//     console.log(frequencyCounter2);
+//     return true;
+//   }
+  
+//   console.log(validAnagram("rat", "tar"));
+
+// const validAnagram = (str1, str2) => {
+//     if (str1.length !== str2.length) {
+//         return false;
+//     }
+//     const lookup = {};
+//     for (let i = 0; i < str1.length; i++) {
+//         let letter = str1[i];
+//         // if letter exists, ncrement, otherwise set to 1
+//         lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+//     }
+//     for (let i = 0; i < str2.length; i++) {
+//         let letter = str2[i];
+//         // cant find letter or letter is zero then its not an anagram
+//         if (!lookup[letter]) {
+//             return false;
+//         } else {
+//             lookup[letter] -= 1;
+//         }
+//     }
+//     console.log(lookup);
+//     return true;
+// }
+
+// console.log(validAnagram("cinema", "iceman"));
+
+
+/////////MULTIPLE POINTERS
+
+// const sumZero = (arr) => {
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = i + 1; j < arr.length; j++) {
+//             if (arr[i] + arr[j] === 0) {
+//                 return [arr[i], arr[j]];
+//             }
+//         }
+//     }
+// }
+
+// console.log(sumZero([-4,-3,-2,-1,0,1,2,5]));   ///// O(n2), space complexity - O(1)
+
+// const sumZero = (arr) => {
+//     let left = 0;
+//     let right = arr.length -1;
+//     while (left < right) {
+//         let sum = arr[left] + arr[right];
+//         if (sum === 0) {
+//             return [arr[left], arr[right]];
+//         } else if (sum > 0) {
+//             right--;
+//         } else {
+//             left++;
+//         }
+//     }
+// }
+
+// console.log(sumZero([-4,-3,-2,-1,0,1,2,3,4]));  /////// time complexity - O(N), space complexity - O(1)
+
+
+//////// COUNT UNIQUE VALUES
+
+// const countUniqueValues = (arr) => {
+//     let i = 0;
+//     for (let j = 1; j < arr.length; j++) {
+//         if(arr[i] !== arr[j]) {
+//             i++;
+//             arr[i] = arr[j];
+//         }
+//         // console.log(i,j);
+//     }
+//     return i + 1;
+// }
+
+// console.log(countUniqueValues([1,2,2,3,4,5,6,6,7,99,9,42,200]));
+
+
+///////// SLIDING WINDOW
+
+// const maxSubarraySum = (arr, num) => {
+//     if (num > arr.length) {
+//         return null;
+//     }
+//     let max = -Infinity;
+//     for (let i = 0; i < arr.length - num + 1; i++) {
+//         temp = 0;
+//         for (let j = 0; j < num; j++) {
+//             temp += arr[i + j];
+//         }
+//         if (temp > max) {
+//             max = temp;
+//         }
+//     }
+//     return max;
+// }
+
+// console.log(maxSubarraySum([2,5,6,7,8,24,100,0,9], 3));
+
+// const maxSubarraySum = (arr, num) => {
+//     let maxSum = 0;
+//     let tempSum = 0;
+//     if (arr.length < num) {
+//         return null;
+//     }
+//     for (let i = 0; i < num; i++) {
+//         maxSum += arr[i];
+//     }
+//     tempSum = maxSum;
+//     for (let i = num; i < arr.length; i++) {
+//         tempSum = tempSum - arr[i - num] + arr[i];
+//         maxSum = Math.max(maxSum, tempSum);
+//     }
+//     return maxSum;
+// }
+
+// console.log(maxSubarraySum([2,5,6,7,8,24,100,0,9], 3));
+
+
+//////// DIVIDE AND CONQUER
+
+// const search = (arr, val) => {
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] === val) {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+
+// console.log(search([2,4,6,8,10,12], 3)); //// linear search - O(N)
+
+const search = (arr, val) => {
+    let min = 0;
+    let max = arr.length - 1;
+
+    while (min <= max) {
+        let middle = Math.floor((min + max) / 2);
+        let currentElement = arr[middle];
+        if (arr[middle] < val) {
+            min = middle + 1;
+        } else if (arr[middle] > val) {
+            max = middle - 1;
+        } else {
+            return middle;
         }
     }
-    return obj;
+    return -1;
 }
 
-const isAlphaNumeric = (char) => {
-    let code = char.charCodeAt(0);
-    if (!(code > 47 && code < 58) && // numeric (0-9)
-        !(code > 64 && code < 91) && // upper alpha (A-Z)
-        !(code > 96 && code < 123)) { // lower alpha (a-z)
-        return false;
-    }
-    return true;
-}
-
-// charCodeAt(0);
-
-console.log(charCount("Hi There guy1211109"));
+console.log(search([2,4,6,8,10,12], 10)); /////// Log(N) - Binary Search
