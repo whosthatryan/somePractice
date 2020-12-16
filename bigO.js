@@ -1,5 +1,7 @@
 // const performance = require('perf_hooks').performance;
 
+const con = console.log;
+
 // const everyone = ['dory', 'bruce', 'marlin', 'nemo', 'gill', 'bloat', 'nigel', 'squirt', 'darla', 'hank'];
 
 // function findNemo(array) {
@@ -372,22 +374,153 @@
 
 // console.log(search([2,4,6,8,10,12], 3)); //// linear search - O(N)
 
-const search = (arr, val) => {
-    let min = 0;
-    let max = arr.length - 1;
+// const search = (arr, val) => {
+//     let min = 0;
+//     let max = arr.length - 1;
 
-    while (min <= max) {
-        let middle = Math.floor((min + max) / 2);
-        let currentElement = arr[middle];
-        if (arr[middle] < val) {
-            min = middle + 1;
-        } else if (arr[middle] > val) {
-            max = middle - 1;
-        } else {
-            return middle;
-        }
-    }
-    return -1;
-}
+//     while (min <= max) {
+//         let middle = Math.floor((min + max) / 2);
+//         let currentElement = arr[middle];
+//         if (arr[middle] < val) {
+//             min = middle + 1;
+//         } else if (arr[middle] > val) {
+//             max = middle - 1;
+//         } else {
+//             return middle;
+//         }
+//     }
+//     return -1;
+// }
 
-console.log(search([2,4,6,8,10,12], 10)); /////// Log(N) - Binary Search
+// console.log(search([2,4,6,8,10,12], 10)); /////// Log(N) - Binary Search
+
+
+/////// RECURSION - a process (a function in this case) that calls itself
+
+// const takeShower = () => {
+//     return "Showering!";
+// }
+
+// const eatBreakfast = () => {
+//     let meal = cookFood();
+//     return `Eating ${meal}`;
+// }
+
+// const cookFood = () => {
+//     let items = ["Oatmeal", "Eggs", "Protein Shake"];
+//     return items[Math.floor(Math.random()*items.length)];
+// }
+
+// const wakeUp = () => {
+//     takeShower();
+//     eatBreakfast();
+//     console.log("Ok ready for work!");
+// }
+
+// wakeUp();
+
+// const countDown = (num) => {
+//     if (num <= 0) {
+//         console.log("All done");
+//         return;
+//     }
+//     console.log(num);
+//     num--;
+//     countDown(num);
+// }
+
+// const countDown = (num) => {
+//     for (let i = num; i > 0; i--) {
+//         console.log(i);
+//     }
+//     console.log("All done");
+// }
+
+// console.log(countDown(5));
+
+// const sumRange = (num) => {
+//     if (num === 1) {
+//         return 1;
+//     }
+//     return num + sumRange(num - 1);
+// }; 
+
+// console.log(sumRange(4));
+
+///// ! = factorial // 4! = 4 * 3 * 2 * 1, 7! = 7 * 6 * 5 * 4 * 3 * 2 * 1, etc...
+
+
+////// iterative solution
+// const factorial = (num) => {
+//     let total = 1;
+//     for (let i = num; i > 0; i--) {
+//         total *= i;
+//     }
+//     return total;
+// }
+
+// con(factorial(4)); 
+
+////// recursive solution
+
+// const factorial = (num) => {
+//     if (num === 1) {
+//         return 1;
+//     }
+//     return num * factorial(num - 1);
+// }
+
+// con(factorial(4));
+
+/////helper method recursion
+
+// const outer = (input) => {
+//     let outScopedVariable = [];
+
+//     const helper = (helperInput) => {
+//         //modify the outerScopedVariable
+//         helper(helperInput--)
+//     }
+//     helper(input)
+
+//     return outScopedVariable;
+// }
+
+// const collectOddValues = (arr) => {
+//     let result = [];
+
+//     const helper = (helperInput) => {
+//         if (helperInput.length === 0) {
+//             return;
+//         }
+//         if (helperInput[0] % 2 !== 0) {
+//             result.push(helperInput[0])
+//         }
+//         helper(helperInput.slice(1))
+//     }
+//     helper(arr);
+
+//     return result;
+// }
+
+// con(collectOddValues([1,2,3,4,5,6,7,8,9]));
+
+// const collectOddValues = (arr) => {
+//     let newArr = [];
+
+//     if(arr.length === 0) {
+//         return newArr;
+//     }
+//     if (arr[0] % 2 !== 0) {
+//         newArr.push(arr[0]);
+//     }
+//     newArr = newArr.concat(collectOddValues(arr.slice(1)));
+//     return newArr;
+// }
+
+// con(collectOddValues([1,2,3,4,5,6,7,8,9]));
+
+////// For arrays, use methods like slice, the spread operator, and concat that make copies of arrays so you dont have to mutate them. 
+//// remember that strings are immutable so you will need to use methodds like slice, substr, or substring to make copues of strings
+/// to make copies of objects, use Object.assign or the spread operator
+
