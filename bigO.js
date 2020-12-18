@@ -524,3 +524,104 @@ const con = console.log;
 //// remember that strings are immutable so you will need to use methodds like slice, substr, or substring to make copues of strings
 /// to make copies of objects, use Object.assign or the spread operator
 
+// POWER
+
+// const power = (base, exponent) => {
+//     if (exponent === 0) {
+//         return 1;
+//     }
+//     return base * power(base, exponent - 1);
+// }
+
+// FACTORIAL
+
+// const factorial = (x) => {
+//     if (x < 0) {
+//         return 0;
+//     }
+//     if (x <= 1) {
+//         return 1;
+//     }
+//     return x * factorial(x - 1);
+// }
+
+// PRODUCT OF ARRAY
+
+// const productOfArray = (arr) => {
+//     if (arr.length === 0) {
+//         return 1;
+//     }
+//     return[0] * productOfArray(arr.slice(1));
+// }
+
+// RECURSIVE RANGE
+
+// const recursiveRange = (x) => {
+//     if (x === 0) {
+//         return 0;
+//     }
+//     return x + recursiveRange(x - 1);
+// }
+
+// FIBONACCI
+
+// const fib = (n) => {
+//     if (n <= 2) {
+//         return 1;
+//     }
+//     return fib(n - 1) + fib(n - 2);
+// }
+
+// console.log(fib(30));
+
+// REVERSE
+
+// const reverse = (str) => {
+//     if (str.length <= 1) {
+//         return str;
+//     }
+//     return reverse(str.slice(1)) + str[0];
+// }
+
+// con(reverse("this is cool"));
+
+// isPalindrome
+
+// const isPalindrome = (str) => {
+//     if (str.length === 1) {
+//         return true;
+//     }
+//     if (str.length === 2) {
+//         return str[0] === str[1];
+//     }
+//     if (str[0] === str.slice(-1)) {
+//         return isPalindrome(str.slice);
+//     }
+//     return false;
+// }
+
+// con(isPalindrome("bob"));
+
+// const someRecursive = (array, callback) => {
+//     if (array.length === 0) {
+//         return false;
+//     }
+//     if (callback(array[0])) {
+//         return true;
+//     }
+//     return someRecursive(array.slice(1), callback);
+// }
+
+// FLATTEN 
+
+// const flatten = (oldArr) => {
+//     let newArr = []
+//     for (let i = 0; i < oldArr.length, i++) {
+//         if (Array.isArray(oldArr)) {
+//             newArr = newArr.concat(flatten(oldArr[i]))
+//         } else {
+//             newArr.push(oldArr[i])
+//         }
+//     }
+//     return newArr;
+// }
