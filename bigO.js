@@ -713,3 +713,79 @@ const con = console.log;
 //     }
 //     return stringsArr;
 // }
+
+
+
+/////////// SEARCHING ALGORITHMS
+
+// Linear search
+
+// const linearSearch = (arr, val) => {
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] === val) {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+
+// con(linearSearch([34, 33, 12, 15], 15));
+
+// Binary Search
+
+// const binarySearch = (arr, elem) => {
+//     let start = 0;
+//     let end = arr.length - 1;
+//     let middle = Math.floor((start + end) / 2);
+//     while (arr[middle] !== elem && start <= end) {
+//         con(start, middle, end);
+//         if (elem < arr[middle]) {
+//             end = middle - 1;
+//         } else {
+//             start = middle + 1;
+//         }
+//         middle = Math.floor((start + end) / 2);
+//     }
+//     con(start, middle, end);
+//     if (arr[middle] === elem) {
+//         return middle;
+//     }
+//     return "nope";
+// }
+
+// const binarySearch = (arr, elem) => {
+//     let start = 0;
+//     let end = arr.length - 1;
+//     let middle = Math.floor((start + end) / 2);
+//     while (arr[middle] !== elem && start <= end) {
+//         if (elem < arr[middle]) end = middle - 1;
+//         else start = middle + 1;
+//         middle = Math.floor((start + end) / 2);
+//     }
+//     return arr[middle] === elem ? middle : "nope";
+// }
+
+// con(binarySearch([2,4,5,7,13,25,37,49,55,64,73], 37))
+
+
+// Naive String Search
+
+// const naiveSearch = (long, short) => {
+//     let count = 0;
+//     for (let i =0; i < long.length; i++) {
+//         for (let j = 0; j < short.length; j++) {
+//             con(short[j], long[i + j]);
+//             if (short[j] !== long[i + j]) {
+//                 con("break!")
+//                 break;
+//             }
+//             if (j ===short.length - 1) {
+//                 con("found one!")
+//                 count++;
+//             }
+//         }
+//     }
+//     return count;
+// }
+
+// con(naiveSearch("lorie loled", "lo"));
