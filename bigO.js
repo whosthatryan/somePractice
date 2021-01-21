@@ -789,3 +789,94 @@ const con = console.log;
 // }
 
 // con(naiveSearch("lorie loled", "lo"));
+
+
+////////// SORTING ALG's
+
+//// JS .sort (doesnt always work the way youd expect)
+
+// const numberCompare = (num1, num2) => {
+//     return num1 - num2;
+// }
+
+// let numbers = [6,4,15,10,22,7].sort(numberCompare);
+
+// con(numbers);
+
+// const compareByLen = (str1, str2) => {
+//     return str1.length - str2.length;
+// }
+
+// let strings = ["Steele","Colt","Data Structures","Algorithms"].sort(compareByLen);
+
+// con(strings);
+
+
+////////BUBBLE SORT (not the most efficient)
+
+//psuedocode:
+
+// start looping from the end of the array twds the beginning with a variable called i
+// start an inner loop with a variable called j from the beginning until i - 1
+// if arr[j] is greater than arr[j+1], swap those two values
+// return sorted array
+
+//ES5:
+
+// function swap(arr, index1, index2) {
+//     var temp = arr[index1];
+//     arr[index1] = arr[index2];
+//     arr[index2] = temp;
+// }
+
+//ES6:
+
+// const swap = (arr, index1, index2) => {
+//     [arr[index1],arr[index2]] = [arr[index2],arr[index1]];
+// } 
+
+// const bubbleSort = (arr) => {
+//     for (let i = arr.length; i > 0; i--) {
+//         for (let j = 0; j < i - 1; j++) {
+//            if (arr[j] > arr[j+1]) {
+//                 //SWAP
+//                 let temp = arr[j];
+//                 arr[j] = arr[j + 1];
+//                 arr[j + 1] = temp;
+//             }
+//         }
+//     }
+//     return arr;
+// }
+
+// let exampleArr = [37,45,29,8,77,-21,102,2002];
+
+// con(bubbleSort(exampleArr));
+
+// optimized with noSwaps:
+
+// const bubbleSort = (arr) => {
+//     let noSwaps;
+//     for (let i = arr.length; i > 0; i--) {
+//         noSwaps = true;
+//         for (let j = 0; j < i - 1; j++) {
+//            if (arr[j] > arr[j+1]) {
+//                 //SWAP
+//                 let temp = arr[j];
+//                 arr[j] = arr[j + 1];
+//                 arr[j + 1] = temp;
+//                 noSwaps = false;
+//             }
+//         }
+//         if (noSwaps) break;
+//     }
+//     return arr;
+// }
+
+// let exampleArr = [37,45,29,8,77,-21,102,2002];
+
+// con(bubbleSort(exampleArr));
+
+
+
+
